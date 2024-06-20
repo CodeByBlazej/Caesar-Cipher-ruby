@@ -1,10 +1,13 @@
 def caesar_cipher (string, shift_factor)
-  alphabet = ('a'..'z').to_a + ('0'..'9').to_a
+  # alphabet = ('a'..'z').to_a + ('0'..'9').to_a
+  # alphabet = /\w/
   array = string.chars
   string_alphabet_index = []
 
   array.each do |char|
     string_alphabet_index.push(alphabet.index(char))
+    # if regex then:
+    # string_alphabet_index.push(alphabet.match(char))
   end
 
   shifted_array = string_alphabet_index.map {|char| char + shift_factor}
