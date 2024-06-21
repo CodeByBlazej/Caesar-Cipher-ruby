@@ -1,5 +1,5 @@
 def caesar_cipher (string, shift_factor)
-  # alphabet = ('a'..'z').to_a + ('0'..'9').to_a
+  alphabet = ('a'..'z').to_a
   # alphabet = /\w/
   array = string.chars
   string_alphabet_index = []
@@ -10,8 +10,28 @@ def caesar_cipher (string, shift_factor)
     # string_alphabet_index.push(alphabet.match(char))
   end
 
-  shifted_array = string_alphabet_index.map {|char| char + shift_factor}
-  
+  if (string_alphabet_index.index)
+  shifted_array = string_alphabet_index.map do |idx|
+    i = 0
+    until i >= shift_factor do
+    idx +  
+
+# shifted_array = []
+
+#   string_alphabet_index.each do |char|
+#     result = char + shift_factor
+#     if (result <= alphabet.length)
+#       shifted_array.push(result)
+#     elsif (result > alphabet.length)
+#       result
+#       shifted_array.push()
+#     end
+#   end
+
+#   string_alphabet_index.map do |char|
+    
+
+
   caesar_string = []
 
   shifted_array.each do |char|
@@ -27,4 +47,4 @@ end
 # make version where I store index of array in another array
 # and then compare them to alphabet
 
-caesar_cipher('kupka', 5)
+caesar_cipher('kuwopkazuuu', 5)
