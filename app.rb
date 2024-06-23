@@ -1,18 +1,28 @@
+require 'pry-byebug'
+
 def caesar_cipher (string, shift_factor)
   alphabet = ('a'..'z').to_a
-  # alphabet = /\w/
+  oryg_string = string.downcase.chars
   array = string.chars
-  # array_with_no_nums = /^(\d) (.*)$/
+  array_with_no_nums = /^(\d) (\s) (.*)$/
   string_alphabet_index = []
 
+
   array.each do |char|
-    string_alphabet_index.push(alphabet.index(char))
+    if alphabet.include?(char.downcase) ## try with || here for upcase
+      string_alphabet_index.push(alphabet.index(char.downcase))
+    else
+      string_alphabet_index.push(char)
+    end
   end
 
+  binding.pry
 
-  shifted_array = string_alphabet_index.map {|idx| (idx + shift_factor) % alphabet.length}
+  shifted_array = string_alphabet_index.map {|idx| idx != nil ? (idx + shift_factor) % alphabet.length : idx}
 
-    
+  # shifted_array = []
+
+
 
 
   caesar_string = []
@@ -23,7 +33,6 @@ def caesar_cipher (string, shift_factor)
 
 
 
-
   p string_alphabet_index
   p shifted_array
   p caesar_string.join('')
@@ -31,4 +40,4 @@ end
 
 
 
-caesar_cipher('abcdefgzzz', 5)
+caesar_cipher('aBBbcdefgzzz ! @ # 123', 15)
