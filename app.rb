@@ -30,12 +30,27 @@ def caesar_cipher (string, shift_factor)
   
   binding.pry
 
-  # array.each_with_index do |char, index|
-  #   if (char =~ /[A-Z]/) == 0
-  #     caesar_string.at(index).replace(char.upcase)
+  array.each_with_index do |char, index|
+    if char =~ /[A-Z]/
+      caesar_string[index] = caesar_string[index].upcase
+
+      # caesar_string[index] = char.upcase
+      # caesar_string[index].upcase
+      # caesar_string.map {|element| element[char] = element.upcase}
   
+    end
+  end
+
+  # caesar_string.each_with_index do |char, index|
+  #   array.each do |element|
+  #     if (element =~ /[A-Z]/) == 0
+  #       char[index] = char.upcase
+  #     else
+  #       char
+  #     end
   #   end
   # end
+
 
 
 
@@ -43,9 +58,10 @@ def caesar_cipher (string, shift_factor)
   p array
   p string_alphabet_index
   p shifted_array
+  p caesar_string
   p caesar_string.join('')
 end
 
 
 
-caesar_cipher('aBBbbcdefgzzzbbb ! @ # 123', 15)
+caesar_cipher('aBBbbcdefgzz zbbbBBB ! @ # 123', 15)
