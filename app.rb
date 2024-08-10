@@ -59,9 +59,10 @@ def caesar_cipher (string, shift_factor)
   p string_alphabet_index
   p shifted_array
   p caesar_string
+  p string
   p caesar_string.join('')
 end
 
 
 
-caesar_cipher('aBBbbcdefgzz zbbbBBB ! @ # 123', 15)
+caesar_cipher("What a string!", 5)
