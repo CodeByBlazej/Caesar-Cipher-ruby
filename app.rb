@@ -1,5 +1,5 @@
 # require 'pry-byebug'
-# rubocop: disable Metrics/AbcSize
+
 def caesar_cipher(string, shift_factor)
   alphabet = ('a'..'z').to_a
   array = string.chars
@@ -56,6 +56,4 @@ def caesar_cipher(string, shift_factor)
   p string
   p caesar_string.join('')
 end
-# rubocop: enable Metrics/AbcSize
-
 caesar_cipher('What a string!', 5)
