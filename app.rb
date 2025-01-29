@@ -1,4 +1,4 @@
-# require 'pry-byebug'
+require 'pry-byebug'
 # rubocop: disable Metrics/AbcSize
 def caesar_cipher(string, shift_factor)
   alphabet = ('a'..'z').to_a
@@ -16,6 +16,7 @@ def caesar_cipher(string, shift_factor)
   shifted_array = string_alphabet_index.map do |idx|
     idx.class == Integer ? (idx + shift_factor) % alphabet.length : idx
   end
+  # binding.pry
 
   caesar_string = []
 
@@ -26,8 +27,6 @@ def caesar_cipher(string, shift_factor)
       caesar_string.push(char)
     end
   end
-
-  # binding.pry
 
   array.each_with_index do |char, index|
     next unless /[A-Z]/.match?(char)
