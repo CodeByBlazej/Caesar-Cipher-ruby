@@ -16,7 +16,7 @@ def caesar_cipher(string, shift_factor)
   shifted_array = string_alphabet_index.map do |idx|
     idx.class == Integer ? (idx + shift_factor) % alphabet.length : idx
   end
-  # binding.pry
+  binding.pry
 
   caesar_string = []
 
