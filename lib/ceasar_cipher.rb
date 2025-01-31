@@ -1,9 +1,9 @@
 class CeasarCipher
-  attr_reader :string, :number, :array, :alphabet, :array_with_indexes
+  attr_reader :string, :shift_factor, :array, :alphabet, :array_with_indexes
 
-  def initialize(string, number)
+  def initialize(string, shift_factor)
     @string = string
-    @number = number
+    @shift_factor = shift_factor
     @array = array
     @alphabet = alphabet
     @array_with_indexes = []
@@ -18,7 +18,8 @@ class CeasarCipher
   end
 
   def make_array_of_string_indexes(string)
-    @array = string.chars
+    make_alphabet
+    make_array_of_string(string)
 
     @array.each do |char|
       if alphabet.include?(char.downcase)
@@ -26,6 +27,16 @@ class CeasarCipher
       else
         @array_with_indexes.push(char)
       end
+    end
+    @array_with_indexes
+  end
+
+  def shift_array_of_string_indexes
+    make_alphabet
+    make_array_of_string_indexes(string)
+
+    @array_with_indexes.map do |idx|
+      idx.is_a?(Integer) ? (idx + @shift_factor) % alphabet.length : idx
     end
   end
 end
