@@ -11,7 +11,7 @@ class CaesarCipher
     @ceasar_string = []
   end
 
-  def decrypt
+  def encrypt
   end
 
   def make_alphabet
