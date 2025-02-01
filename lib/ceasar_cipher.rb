@@ -11,6 +11,9 @@ class CeasarCipher
     @ceasar_string = []
   end
 
+  def decrypt
+  end
+
   def make_alphabet
     @alphabet = ('a'..'z').to_a
   end
