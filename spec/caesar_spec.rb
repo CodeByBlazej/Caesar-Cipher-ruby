@@ -48,4 +48,28 @@ describe CeasarCipher do
       expect(result).to eq(expected_array)
     end
   end
+
+  describe '#make_ceasar_string_array' do
+    it 'turns array of numbers into array with Caesar string' do
+      expected_array = [
+        'b', 'm', 'f', 'y', ' ',
+        'f', ' ',
+        'x', 'y', 'w', 'n', 's', 'l',
+        '!'
+      ]
+
+      result = ceasar.make_ceasar_string_array
+      expect(result).to eq(expected_array)
+    end
+  end
+
+  describe '#turns_array_into_ceasar' do
+    it 'finish off the task and turns array into proper ceasar cipher' do
+      expected_string = 'Bmfy f xywnsl!'
+
+      result = ceasar.turns_array_into_ceasar
+
+      expect(result).to eq(expected_string)
+    end
+  end
 end
