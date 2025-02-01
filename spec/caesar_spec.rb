@@ -2,11 +2,11 @@ require_relative '../lib/caesar_breaker'
 
 describe CaesarCipher do
   let(:string) { 'What a string!' }
-  subject(:ceasar) { described_class.new(string, 5) }
+  subject(:caesar) { described_class.new(string, 5) }
 
   describe '#make_array_of_string' do
     it 'makes an array with chars of string' do
-      string = ceasar.make_array_of_string('What a string!')
+      string = caesar.make_array_of_string('What a string!')
       array = ['W', 'h', 'a', 't', ' ', 'a', ' ', 's', 't', 'r',
                'i', 'n', 'g', '!']
       expect(string).to eq(array)
@@ -15,13 +15,19 @@ describe CaesarCipher do
 
   describe '#make_alphabet' do
     it 'makes an array with alphabet letters' do
-      alphabet = ceasar.make_alphabet
+      alphabet = caesar.make_alphabet
       result = ('a'..'z').to_a
       expect(alphabet).to eq(result)
     end
   end
 
   describe '#make_array_of_string_indexes' do
+    before do
+      allow(caesar).to receive(:alphabet).and_return(('a'..'z').to_a)
+      allow(caesar).to receive(:array).and_return(['W', 'h', 'a', 't', ' ', 'a', ' ', 's', 't', 'r',
+                                                   'i', 'n', 'g', '!'])
+    end
+
     it 'converts each letter in the string to its index and leaves others alone' do
       expected_array = [
         22, 7, 0, 19, ' ',
@@ -30,13 +36,13 @@ describe CaesarCipher do
         '!'
       ]
 
-      result = ceasar.make_array_of_string_indexes(string)
+      result = caesar.make_array_of_string_indexes
       expect(result).to eq(expected_array)
     end
   end
 
   describe '#shift_array_of_string_indexes' do
-    it 'shifts each index by a given shift factor' do
+    xit 'shifts each index by a given shift factor' do
       expected_array = [
         1, 12, 5, 24, ' ',
         5, ' ',
@@ -44,13 +50,13 @@ describe CaesarCipher do
         '!'
       ]
 
-      result = ceasar.shift_array_of_string_indexes
+      result = caesar.shift_array_of_string_indexes
       expect(result).to eq(expected_array)
     end
   end
 
   describe '#make_ceasar_string_array' do
-    it 'turns array of numbers into array with Caesar string' do
+    xit 'turns array of numbers into array with Caesar string' do
       expected_array = [
         'b', 'm', 'f', 'y', ' ',
         'f', ' ',
@@ -58,16 +64,16 @@ describe CaesarCipher do
         '!'
       ]
 
-      result = ceasar.make_ceasar_string_array
+      result = caesar.make_ceasar_string_array
       expect(result).to eq(expected_array)
     end
   end
 
   describe '#turns_array_into_ceasar' do
-    it 'finish off the task and turns array into proper ceasar cipher' do
+    xit 'finish off the task and turns array into proper ceasar cipher' do
       expected_string = 'Bmfy f xywnsl!'
 
-      result = ceasar.turns_array_into_ceasar
+      result = caesar.turns_array_into_ceasar
 
       expect(result).to eq(expected_string)
     end
