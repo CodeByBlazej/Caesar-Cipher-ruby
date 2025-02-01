@@ -14,7 +14,7 @@ class CaesarCipher
   def encrypt
     make_alphabet
     make_array_of_string(@string)
-    make_array_of_string_indexes(@string)
+    make_array_of_string_indexes
     shift_array_of_string_indexes
     make_ceasar_string_array
     turns_array_into_ceasar
@@ -28,18 +28,18 @@ class CaesarCipher
     @array = string.chars
   end
 
-  def make_array_of_string_indexes(string)
+  def make_array_of_string_indexes
     # make_alphabet
     # make_array_of_string(string)
 
-    @array.each do |char|
+    array.each do |char|
       if alphabet.include?(char.downcase)
         @array_with_indexes.push(alphabet.index(char.downcase))
       else
         @array_with_indexes.push(char)
       end
     end
-    # @array_with_indexes
+    @array_with_indexes
   end
 
   def shift_array_of_string_indexes
