@@ -12,6 +12,12 @@ class CaesarCipher
   end
 
   def encrypt
+    make_alphabet
+    make_array_of_string(@string)
+    make_array_of_string_indexes(@string)
+    shift_array_of_string_indexes
+    make_ceasar_string_array
+    turns_array_into_ceasar
   end
 
   def make_alphabet
@@ -23,8 +29,8 @@ class CaesarCipher
   end
 
   def make_array_of_string_indexes(string)
-    make_alphabet
-    make_array_of_string(string)
+    # make_alphabet
+    # make_array_of_string(string)
 
     @array.each do |char|
       if alphabet.include?(char.downcase)
@@ -33,32 +39,32 @@ class CaesarCipher
         @array_with_indexes.push(char)
       end
     end
-    @array_with_indexes
+    # @array_with_indexes
   end
 
   def shift_array_of_string_indexes
-    make_alphabet
-    make_array_of_string_indexes(string)
+    # make_alphabet
+    # make_array_of_string_indexes(string)
 
     @array_with_indexes.each do |idx|
       @shifted_array << (idx.is_a?(Integer) ? (idx + @shift_factor) % alphabet.length : idx)
     end
 
-    @shifted_array
+    # @shifted_array
   end
 
   def make_ceasar_string_array
-    shift_array_of_string_indexes
+    # shift_array_of_string_indexes
 
     @shifted_array.each do |char|
       @ceasar_string << (char.is_a?(Integer) ? alphabet.at(char) : char)
     end
 
-    @ceasar_string
+    # @ceasar_string
   end
 
   def turns_array_into_ceasar
-    make_ceasar_string_array
+    # make_ceasar_string_array
 
     @array.each_with_index do |char, index|
       next unless /[A-Z]/.match?(char)
