@@ -1,6 +1,6 @@
-require_relative '../lib/ceasar_cipher'
+require_relative '../lib/caesar_breaker'
 
-describe CeasarCipher do
+describe CaesarCipher do
   let(:string) { 'What a string!' }
   subject(:ceasar) { described_class.new(string, 5) }
 
