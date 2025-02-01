@@ -42,7 +42,17 @@ describe CaesarCipher do
   end
 
   describe '#shift_array_of_string_indexes' do
-    xit 'shifts each index by a given shift factor' do
+    before do
+      allow(caesar).to receive(:alphabet).and_return(('a'..'z').to_a)
+      allow(caesar).to receive(:array_with_indexes).and_return([
+                                                                 22, 7, 0, 19, ' ',
+                                                                 0, ' ',
+                                                                 18, 19, 17, 8, 13, 6,
+                                                                 '!'
+                                                               ])
+    end
+
+    it 'shifts each index by a given shift factor' do
       expected_array = [
         1, 12, 5, 24, ' ',
         5, ' ',
