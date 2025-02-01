@@ -39,6 +39,7 @@ class CaesarCipher
         @array_with_indexes.push(char)
       end
     end
+
     @array_with_indexes
   end
 
@@ -46,11 +47,11 @@ class CaesarCipher
     # make_alphabet
     # make_array_of_string_indexes(string)
 
-    @array_with_indexes.each do |idx|
+    array_with_indexes.each do |idx|
       @shifted_array << (idx.is_a?(Integer) ? (idx + @shift_factor) % alphabet.length : idx)
     end
 
-    # @shifted_array
+    @shifted_array
   end
 
   def make_ceasar_string_array
