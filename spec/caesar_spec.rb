@@ -66,7 +66,17 @@ describe CaesarCipher do
   end
 
   describe '#make_ceasar_string_array' do
-    xit 'turns array of numbers into array with Caesar string' do
+    before do
+      allow(caesar).to receive(:alphabet).and_return(('a'..'z').to_a)
+      allow(caesar).to receive(:shifted_array).and_return([
+                                                            1, 12, 5, 24, ' ',
+                                                            5, ' ',
+                                                            23, 24, 22, 13, 18, 11,
+                                                            '!'
+                                                          ])
+    end
+
+    it 'turns array of numbers into array with Caesar string' do
       expected_array = [
         'b', 'm', 'f', 'y', ' ',
         'f', ' ',
@@ -80,7 +90,18 @@ describe CaesarCipher do
   end
 
   describe '#turns_array_into_ceasar' do
-    xit 'finish off the task and turns array into proper ceasar cipher' do
+    before do
+      allow(caesar).to receive(:array).and_return(['W', 'h', 'a', 't', ' ', 'a', ' ', 's', 't', 'r',
+                                                   'i', 'n', 'g', '!'])
+      allow(caesar).to receive(:ceasar_string).and_return([
+                                                            'b', 'm', 'f', 'y', ' ',
+                                                            'f', ' ',
+                                                            'x', 'y', 'w', 'n', 's', 'l',
+                                                            '!'
+                                                          ])
+    end
+
+    it 'finish off the task and turns array into proper ceasar cipher' do
       expected_string = 'Bmfy f xywnsl!'
 
       result = caesar.turns_array_into_ceasar
